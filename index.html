@@ -38,6 +38,8 @@
 .empty-reasons{margin:8px 0 0;padding:12px 14px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);background:#fff}
 .result-cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.result-consult{text-align:center;text-decoration:none}.result-secondary{display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;padding:13px 16px;border:1px solid var(--accent);border-radius:14px;color:var(--accent);font-weight:800;background:#fff}
 @media(max-width:760px){.result-cta{grid-template-columns:1fr}}
+
+.cta-single{grid-template-columns:1fr}.paid-card{position:relative;padding-top:58px!important}.price-badge{position:absolute;top:18px;right:18px;display:inline-block;padding:7px 11px;border-radius:999px;background:#fff;color:var(--accent);font-weight:900;font-size:16px}
 </style>
 </head>
 <body>
@@ -184,13 +186,15 @@
 </div></section>
 
 <section class="section"><div class="wrap">
-<h2>Нужна проверка всей ситуации?</h2>
-<p class="lead">8 МРОТ — только один критерий. После этой проверки можно перейти к полному расчёту или разобрать ситуацию со мной.</p>
-<div class="cta">
-<a class="primary" href="https://anyutochka1-sys.github.io/paid-benefit/?v=20260930-7" target="_blank" rel="noopener" id="fullCalc"><strong>Полный калькулятор единого пособия</strong><span>Доходы, имущество, алименты, расчётный период и другие условия.</span></a>
-<a href="https://t.me/annaproposobiya" target="_blank" rel="noopener"><strong>Консультация с Анной</strong><span>Если ситуация нестандартная и хочется проверить всё по документам.</span></a>
+<h2>Хотите проверить всё пособие целиком?</h2>
+<p class="lead">Правило 8 МРОТ — только один критерий. Полный калькулятор проверяет остальные условия единого пособия.</p>
+<div class="cta cta-single">
+<a class="primary paid-card" href="https://anyutochka1-sys.github.io/paid-benefit/?v=20260930-7" target="_blank" rel="noopener" id="fullCalc">
+<span class="price-badge">990 ₽</span>
+<strong>Полный калькулятор единого пособия</strong>
+<span>Доходы, имущество, алименты, расчётный период и другие условия.</span>
+</a>
 </div>
-
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -402,7 +406,7 @@ document.getElementById('check').addEventListener('click',()=>{
  family.innerHTML=(allOk
   ?'<h3>По правилу 8 МРОТ предварительно всё в порядке</h3><p><b>Вы:</b> '+fmt(r1.income)+' при минимуме '+fmt(r1.threshold)+'.</p>'+(one?'':'<p><b>Супруг / супруга:</b> '+fmt(r2.income)+' при минимуме '+fmt(r2.threshold)+'.</p>')+'<p>Остальные условия единого пособия проверяются отдельно.</p>'
   :'<h3>Есть риск отказа по правилу 8 МРОТ</h3><p><b>Вы:</b> '+fmt(r1.income)+' при минимуме '+fmt(r1.threshold)+'.</p>'+(one?'':'<p><b>Супруг / супруга:</b> '+fmt(r2.income)+' при минимуме '+fmt(r2.threshold)+'.</p>')+'<p>Выше видно, у кого доход ниже индивидуального порога.</p>')
-  +'<div class="result-cta"><a class="btn result-consult" href="https://t.me/annaproposobiya" target="_blank" rel="noopener">Разобрать мою ситуацию с Анной</a><a class="result-secondary" href="https://anyutochka1-sys.github.io/paid-benefit/?v=20260930-7" target="_blank" rel="noopener">Перейти к полному калькулятору</a></div>';
+  +'<div class="result-cta"><a class="btn result-consult" href="https://t.me/annaproposobiya" target="_blank" rel="noopener">Разобрать мою ситуацию с Анной</a><a class="result-secondary" href="https://anyutochka1-sys.github.io/paid-benefit/?v=20260930-7" target="_blank" rel="noopener">Полный калькулятор • 990 ₽</a></div>';
  family.classList.remove('hidden'); family.scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 
