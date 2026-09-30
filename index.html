@@ -31,6 +31,10 @@
 .reason-add-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:18px 0 10px}.reason-add-head>div{display:flex;flex-direction:column}.reason-add-head small{color:var(--muted)}
 .reason-rows{display:grid;gap:10px}.reason-row{padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff}.reason-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr auto;gap:10px;align-items:end}.reason-grid label{display:block;font-size:13px;font-weight:700}.reason-grid select{width:100%;margin-top:5px;padding:10px;border:1px solid #d8cac3;border-radius:10px;background:#fff}.remove-reason{border:0;background:none;color:var(--danger);font-size:22px;cursor:pointer;padding:8px}.reason-hint{font-size:12px;color:var(--muted);margin:8px 0 0}
 @media(max-width:760px){.reason-add-head{align-items:stretch;flex-direction:column}.reason-grid{grid-template-columns:1fr 1fr}.reason-grid .reason-type{grid-column:1/-1}.remove-reason{justify-self:end}.main-check{padding:16px}}
+
+.empty-reasons{margin:8px 0 0;padding:12px 14px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);background:#fff}
+.result-cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.result-consult{text-align:center;text-decoration:none}.result-secondary{display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;padding:13px 16px;border:1px solid var(--accent);border-radius:14px;color:var(--accent);font-weight:800;background:#fff}
+@media(max-width:760px){.result-cta{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -272,6 +276,7 @@ function reasonOptions(selected){
 }
 function addReasonRow(adult,values={}){
  const box=document.getElementById('reasonRows'+adult);
+ const empty=box.querySelector('.empty-reasons'); if(empty) empty.remove();
  const row=document.createElement('div'); row.className='reason-row';
  row.innerHTML='<div class="reason-grid">'
   +'<div class="reason-type"><label>Причина<select class="reasonType">'+reasonOptions(values.type||'child3')+'</select></label></div>'
@@ -280,7 +285,10 @@ function addReasonRow(adult,values={}){
   +'<button type="button" class="remove-reason" aria-label="Удалить причину">×</button>'
   +'</div><p class="reason-hint"></p>';
  box.appendChild(row);
- row.querySelector('.remove-reason').addEventListener('click',()=>row.remove());
+ row.querySelector('.remove-reason').addEventListener('click',()=>{
+   row.remove();
+   if(!box.querySelector('.reason-row')) box.innerHTML='<p class="empty-reasons">Нажмите «Добавить причину», чтобы указать её и период.</p>';
+ });
  row.querySelector('.reasonType').addEventListener('change',()=>updateHint(row));
  updateHint(row);
 }
@@ -369,7 +377,9 @@ document.querySelectorAll('[data-help]').forEach(btn=>btn.addEventListener('clic
  document.querySelectorAll('input[name="reasonMode'+a+'"]').forEach(r=>r.addEventListener('change',()=>{
    const yes=document.querySelector('input[name="reasonMode'+a+'"]:checked').value==='yes';
    document.getElementById('reasonBlock'+a).classList.toggle('hidden',!yes);
-   if(yes && !document.querySelector('#reasonRows'+a+' .reason-row')) addReasonRow(a);
+   if(yes && !document.querySelector('#reasonRows'+a+' .reason-row')) {
+     document.getElementById('reasonRows'+a).innerHTML='<p class="empty-reasons">Нажмите «Добавить причину», чтобы указать её и период.</p>';
+   }
  }));
 });
 document.querySelectorAll('.addReason').forEach(btn=>btn.addEventListener('click',()=>addReasonRow(Number(btn.dataset.adult))));
@@ -386,9 +396,10 @@ document.getElementById('check').addEventListener('click',()=>{
  const family=document.getElementById('familyResult');
  const allOk=r1.ok&&(one||r2.ok);
  family.className='family-result '+(allOk?'':'warn');
- family.innerHTML=allOk
+ family.innerHTML=(allOk
   ?'<h3>По правилу 8 МРОТ предварительно всё в порядке</h3><p><b>Вы:</b> '+fmt(r1.income)+' при минимуме '+fmt(r1.threshold)+'.</p>'+(one?'':'<p><b>Супруг / супруга:</b> '+fmt(r2.income)+' при минимуме '+fmt(r2.threshold)+'.</p>')+'<p>Остальные условия единого пособия проверяются отдельно.</p>'
-  :'<h3>Есть риск отказа по правилу 8 МРОТ</h3><p><b>Вы:</b> '+fmt(r1.income)+' при минимуме '+fmt(r1.threshold)+'.</p>'+(one?'':'<p><b>Супруг / супруга:</b> '+fmt(r2.income)+' при минимуме '+fmt(r2.threshold)+'.</p>')+'<p>Выше видно, у кого доход ниже индивидуального порога.</p>';
+  :'<h3>Есть риск отказа по правилу 8 МРОТ</h3><p><b>Вы:</b> '+fmt(r1.income)+' при минимуме '+fmt(r1.threshold)+'.</p>'+(one?'':'<p><b>Супруг / супруга:</b> '+fmt(r2.income)+' при минимуме '+fmt(r2.threshold)+'.</p>')+'<p>Выше видно, у кого доход ниже индивидуального порога.</p>')
+  +'<div class="result-cta"><a class="btn result-consult" href="https://t.me/annaproposobiya" target="_blank" rel="noopener">Разобрать мою ситуацию с Анной</a><a class="result-secondary" href="https://anyutochka1-sys.github.io/paid-benefit/?v=20260930-7" target="_blank" rel="noopener">Перейти к полному калькулятору</a></div>';
  family.classList.remove('hidden'); family.scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 
