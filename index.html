@@ -25,7 +25,7 @@
 <h1>Проверьте правило 8 МРОТ для единого пособия</h1>
 <p>В 2026 году правило 8 МРОТ проверяется <b>отдельно по каждому трудоспособному члену семьи</b>. То есть 216 744 ₽ — не общая сумма на семью: свой минимальный доход должен быть у каждого взрослого, если требование не уменьшается из-за уважительных причин.</p>
 <div class="hero-grid">
-<div class="stat"><span>8 МРОТ в 2026 году</span><strong>216 744 ₽</strong><span>27 093 ₽ × 8</span></div>
+<div class="stat"><span id="mrotYearLabel">8 МРОТ в 2026 году</span><strong id="eightMrotValue">216 744 ₽</strong><span id="mrotFormula">27 093 ₽ × 8</span></div>
 <div class="stat"><span>Если уважительных причин</span><strong>10+ мес.</strong><span>требование по минимальному доходу не применяется</span></div>
 </div>
 <div class="notice"><b>Важно:</b> это предварительная проверка только правила 8 МРОТ. Для единого пособия СФР отдельно проверяет среднедушевой доход, имущество, состав семьи и другие условия.</div>
@@ -142,7 +142,23 @@
 
 <footer><div class="wrap">© 2026 «Анна про пособия». Бесплатный справочный инструмент.</div></footer>
 <script>
-const MROT=27093, EIGHT=MROT*8;
+let MROT=27093, EIGHT=MROT*8;
+let MROT_DATA={"2026":{"mrot":27093,"status":"official"}};
+async function loadMrotData(){
+  try{
+    const r=await fetch('data/mrot.json?ts='+Date.now(),{cache:'no-store'});
+    if(r.ok) MROT_DATA=await r.json();
+  }catch(e){}
+  const nowYear=new Date().getFullYear();
+  const years=Object.keys(MROT_DATA).map(Number).sort((a,b)=>a-b);
+  const useYear=MROT_DATA[nowYear]?nowYear:years[years.length-1];
+  if(MROT_DATA[useYear]){
+    MROT=Number(MROT_DATA[useYear].mrot); EIGHT=MROT*8;
+    document.getElementById('mrotYearLabel').textContent='8 МРОТ в '+useYear+' году';
+    document.getElementById('eightMrotValue').textContent=fmt(EIGHT);
+    document.getElementById('mrotFormula').textContent=fmt(MROT)+' × 8';
+  }
+}
 const reasonOptions=[
 ['','Нет уважительной причины'],
 ['child3','Уход за ребёнком до 3 лет'],
@@ -157,7 +173,21 @@ const reasonOptions=[
 ];
 const ruMonths=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
 const apply=document.getElementById('applyMonth');
-for(let m=0;m<12;m++){const o=document.createElement('option');o.value='2026-'+String(m+1).padStart(2,'0');o.textContent=ruMonths[m]+' 2026';if(m===8)o.selected=true;apply.appendChild(o)}
+function buildApplyOptions(){
+ apply.innerHTML='';
+ const now=new Date();
+ let years=Object.keys(MROT_DATA).map(Number).sort((a,b)=>a-b);
+ if(!years.length) years=[2026];
+ years.forEach(y=>{
+   for(let m=0;m<12;m++){
+     const o=document.createElement('option');
+     o.value=y+'-'+String(m+1).padStart(2,'0');
+     o.textContent=ruMonths[m]+' '+y;
+     if(y===now.getFullYear() && m===now.getMonth()) o.selected=true;
+     apply.appendChild(o);
+   }
+ });
+}
 function fmt(n){return new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(n))+' ₽'}
 function buildMonths(){
  const [y,m]=apply.value.split('-').map(Number);
@@ -174,7 +204,16 @@ function buildMonths(){
    }
  });
 }
-apply.addEventListener('change',buildMonths);buildMonths();
+apply.addEventListener('change',()=>{
+  const y=Number(apply.value.slice(0,4));
+  if(MROT_DATA[y]){MROT=Number(MROT_DATA[y].mrot);EIGHT=MROT*8;
+    document.getElementById('mrotYearLabel').textContent='8 МРОТ в '+y+' году';
+    document.getElementById('eightMrotValue').textContent=fmt(EIGHT);
+    document.getElementById('mrotFormula').textContent=fmt(MROT)+' × 8';
+  }
+  buildMonths();
+});
+loadMrotData().then(()=>{buildApplyOptions();buildMonths();});
 
 document.getElementById('singleAdult').addEventListener('change',e=>{
  document.getElementById('adult2').style.display=e.target.checked?'none':'block';
