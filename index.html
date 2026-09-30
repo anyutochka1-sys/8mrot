@@ -22,6 +22,7 @@
 .choice-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.choice-row.compact{grid-template-columns:repeat(2,minmax(120px,180px))}.choice{display:flex;gap:10px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff;cursor:pointer}.choice input{margin-top:4px}.choice span{display:flex;flex-direction:column}.choice small{color:var(--muted)}
 .text-link{border:0;background:none;padding:0;color:var(--accent);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:2px}.mini-help{margin:10px 0 16px;padding:14px 16px;border-radius:14px;background:#f8f2ed;border:1px solid var(--line);font-size:14px}.mini-help ul{margin:6px 0 8px;padding-left:20px}.mini-help p{margin:6px 0;color:var(--muted)}.question-block{margin-top:16px}.reason-block{margin-top:10px}
 @media(max-width:760px){.choice-row,.choice-row.compact{grid-template-columns:1fr}.step-head h3{font-size:21px}}
+.muted-inline{color:var(--muted);font-weight:400}
 </style>
 </head>
 <body>
@@ -67,12 +68,12 @@
 <li>зарплата и официальные премии;</li>
 <li>доходы по договорам ГПХ и другие вознаграждения за работу и услуги;</li>
 <li>доходы от ИП, самозанятости и частной практики;</li>
-<li>пенсия, стипендия;</li>
+<li>пенсия, стипендия <span class="muted-inline">(при этом получение пенсии также может быть уважительной причиной для дохода ниже 8 МРОТ)</span>;</li>
 <li>денежное довольствие военнослужащего;</li>
-<li>доходы за пределами РФ;</li>
+<li>аналогичные учитываемые доходы, полученные за пределами РФ;</li>
 <li>пособие по временной нетрудоспособности.</li>
 </ul>
-<p><b>Не все детские и социальные выплаты учитываются для правила 8 МРОТ.</b> Здесь нужно указывать только те виды дохода, которые учитываются именно для этого требования. Общий доход семьи для назначения единого пособия рассчитывается по другим правилам.</p>
+<p><b>Это краткая памятка по основным видам дохода.</b> Для правила 8 МРОТ учитываются виды доходов, прямо указанные в правилах назначения единого пособия. Не переносите сюда автоматически все выплаты, которые входят в общий среднедушевой доход семьи.</p>
 </div>
 <div class="question-block">
 <p><b>Были уважительные причины, из-за которых доход мог быть ниже?</b></p>
@@ -88,7 +89,7 @@
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="pregnant"><span><b>Беременность</b><br><small>Беременность длилась 6 месяцев и более в расчётном периоде или на дату обращения срок 12 недель и более.</small></span></label>
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="largeFamily"><span><b>Один из родителей в многодетной семье</b></span></label>
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="singleParent"><span><b>Единственный родитель / единственный опекун</b></span></label>
-<label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="indigenous"><span><b>Коренные малочисленные народы Севера, Сибири и Дальнего Востока</b></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="indigenous"><span><b>Принадлежность к коренным малочисленным народам Севера, Сибири и Дальнего Востока</b><br><small>Отметьте здесь только если это основание охватывает весь расчётный период. Если нет — укажите соответствующие месяцы ниже.</small></span></label>
 </div>
 </details>
 <h4>Если причина действовала не весь период, отметьте месяцы</h4>
@@ -108,12 +109,12 @@
 <li>зарплата и официальные премии;</li>
 <li>доходы по договорам ГПХ и другие вознаграждения за работу и услуги;</li>
 <li>доходы от ИП, самозанятости и частной практики;</li>
-<li>пенсия, стипендия;</li>
+<li>пенсия, стипендия <span class="muted-inline">(при этом получение пенсии также может быть уважительной причиной для дохода ниже 8 МРОТ)</span>;</li>
 <li>денежное довольствие военнослужащего;</li>
-<li>доходы за пределами РФ;</li>
+<li>аналогичные учитываемые доходы, полученные за пределами РФ;</li>
 <li>пособие по временной нетрудоспособности.</li>
 </ul>
-<p><b>Не все детские и социальные выплаты учитываются для правила 8 МРОТ.</b> Здесь нужно указывать только те виды дохода, которые учитываются именно для этого требования. Общий доход семьи для назначения единого пособия рассчитывается по другим правилам.</p>
+<p><b>Это краткая памятка по основным видам дохода.</b> Для правила 8 МРОТ учитываются виды доходов, прямо указанные в правилах назначения единого пособия. Не переносите сюда автоматически все выплаты, которые входят в общий среднедушевой доход семьи.</p>
 </div>
 <div class="question-block">
 <p><b>Были уважительные причины, из-за которых доход мог быть ниже?</b></p>
@@ -128,7 +129,7 @@
 <div class="switches">
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="largeFamily"><span><b>Один из родителей в многодетной семье</b><br><small>Одновременно это основание применяется только к одному родителю.</small></span></label>
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="singleParent"><span><b>Единственный родитель / единственный опекун</b></span></label>
-<label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="indigenous"><span><b>Коренные малочисленные народы Севера, Сибири и Дальнего Востока</b></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="indigenous"><span><b>Принадлежность к коренным малочисленным народам Севера, Сибири и Дальнего Востока</b><br><small>Отметьте здесь только если это основание охватывает весь расчётный период. Если нет — укажите соответствующие месяцы ниже.</small></span></label>
 </div>
 </details>
 <h4>Если причина действовала не весь период, отметьте месяцы</h4>
@@ -144,7 +145,7 @@
 
 <section class="section"><div class="wrap">
 <h2>Какие причины учитываются</h2>
-<p class="lead">Здесь не просто список, а ограничения, на которых люди чаще всего спотыкаются. Потому что правила господдержки, видимо, недостаточно сложны без маленьких временных ловушек.</p>
+<p class="lead">Ниже — уважительные причины и важные ограничения по срокам. Именно сроки влияют на то, уменьшится ли требуемый доход или правило 8 МРОТ не будет применяться.</p>
 <div class="reasons">
 <div class="card reason"><span class="pill">до 6 месяцев</span><h3>Официальная безработица</h3><p>Нужна регистрация в центре занятости как безработного.</p><p class="limit">В расчётном периоде засчитывается не более 6 месяцев.</p></div>
 <div class="card reason"><span class="pill">условие 6 мес. / 12 недель</span><h3>Беременность</h3><p>Причина применяется, если беременность пришлась минимум на 6 месяцев расчётного периода или на дату обращения срок составляет не меньше 12 недель.</p></div>
@@ -220,7 +221,8 @@ const reasonOptions=[
 ['army','Срочная служба / 3 мес. после'],
 ['unemployment','Официальная безработица'],
 ['prison','Лишение свободы / 3 мес. после'],
-['pension','Пенсия по старости / инвалидности / потере кормильца']
+['pension','Пенсия по старости / инвалидности / потере кормильца'],
+['indigenous','Принадлежность к коренным малочисленным народам']
 ];
 const ruMonths=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
 const apply=document.getElementById('applyMonth');
@@ -270,6 +272,11 @@ document.querySelectorAll('input[name="familyMode"]').forEach(r=>r.addEventListe
   const one=document.querySelector('input[name="familyMode"]:checked').value==='one';
   document.getElementById('adult2').style.display=one?'none':'block';
 }));
+document.querySelectorAll('.fullReason[value="largeFamily"]').forEach(cb=>cb.addEventListener('change',()=>{
+  if(cb.checked){
+    document.querySelectorAll('.fullReason[value="largeFamily"]').forEach(other=>{if(other!==cb) other.checked=false;});
+  }
+}));
 document.querySelectorAll('[data-help]').forEach(btn=>btn.addEventListener('click',()=>{
   const el=document.getElementById(btn.dataset.help);
   el.classList.toggle('hidden');
@@ -282,7 +289,12 @@ document.querySelectorAll('[data-help]').forEach(btn=>btn.addEventListener('clic
 });
 
 function calculateAdult(a){
- const income=Math.max(0,Number(document.getElementById('income'+a).value||0));
+ const input=document.getElementById('income'+a);
+ if(input.value.trim()===''){
+   input.focus();
+   return {valid:false,ok:false};
+ }
+ const income=Math.max(0,Number(input.value));
  const reasonYes=document.querySelector('input[name="reasonMode'+a+'"]:checked').value==='yes';
  const full=reasonYes && [...document.querySelectorAll('.fullReason[data-adult="'+a+'"]:checked')].length>0;
  let reasons=reasonYes ? [...document.querySelectorAll('.month select[data-adult="'+a+'"]')].map(x=>x.value) : [];
@@ -296,13 +308,15 @@ function calculateAdult(a){
  const why=full?'Отмечено основание, при котором минимальный порог может не применяться.':justified>=10?'Уважительная причина отмечена минимум в 10 месяцах, поэтому минимальный порог не применяется.':'Засчитано уважительных месяцев: '+justified+'. Требуемый минимум уменьшен пропорционально.';
  box.innerHTML='<h3>'+(ok?'Предварительно проходит':'Доход ниже требуемого минимума')+'</h3><div class="big">'+fmt(income)+' / нужно '+fmt(threshold)+'</div><p>'+why+'</p>'+(income<threshold?'<p><b>Не хватает примерно '+fmt(threshold-income)+'.</b></p>':'');
  box.classList.remove('hidden');
- return {ok,income,threshold,justified,full};
+ return {valid:true,ok,income,threshold,justified,full};
 }
 
 document.getElementById('check').addEventListener('click',()=>{
  const r1=calculateAdult(1);
+ if(!r1.valid){alert('Укажите доход первого взрослого за расчётный период. Если дохода не было, поставьте 0.');return;}
  const one=document.querySelector('input[name="familyMode"]:checked').value==='one';
  const r2=one?null:calculateAdult(2);
+ if(r2 && !r2.valid){alert('Укажите доход второго взрослого за расчётный период. Если дохода не было, поставьте 0.');return;}
  const family=document.getElementById('familyResult');
  const allOk=r1.ok&&(one||r2.ok);
  family.className='family-result '+(allOk?'':'warn');
