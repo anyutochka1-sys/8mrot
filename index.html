@@ -10,13 +10,20 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
 .wrap{width:min(1080px,calc(100% - 32px));margin:auto}.hero{padding:68px 0 40px}.eyebrow{display:inline-block;padding:7px 11px;border-radius:999px;background:var(--soft);color:#7c432f;font-weight:700;font-size:13px}.hero h1{font-size:clamp(34px,7vw,64px);line-height:1.02;margin:18px 0 18px;max-width:850px;letter-spacing:-.04em}.hero p{font-size:clamp(17px,2.2vw,21px);max-width:760px;color:var(--muted)}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:18px;margin-top:28px}.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}.stat{padding:26px}.stat strong{display:block;font-size:clamp(34px,5vw,52px);line-height:1.05;color:var(--accent)}.stat span{color:var(--muted)}.notice{padding:18px 20px;border-radius:18px;background:#fff7e8;border:1px solid #f0d7a2;margin:22px 0}.section{padding:34px 0}.section h2{font-size:clamp(27px,4vw,40px);margin:0 0 10px;letter-spacing:-.03em}.lead{color:var(--muted);max-width:800px}.calc{padding:26px;margin-top:20px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.field label{display:block;font-weight:700;margin-bottom:7px}.field input,.field select{width:100%;padding:14px 15px;border:1px solid #d8cac3;border-radius:14px;background:#fff;font:inherit;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(168,93,67,.12)}.period{margin:18px 0;padding:14px 16px;border-radius:14px;background:#f7f1ec}.switches{display:grid;gap:10px;margin:16px 0}.switch{display:flex;gap:10px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.switch input{margin-top:4px;transform:scale(1.15)}.months{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.month{padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff}.month b{display:block;margin-bottom:7px}.month select{width:100%;padding:9px;border:1px solid #d8cac3;border-radius:10px;background:#fff}.btn{appearance:none;border:0;border-radius:14px;padding:14px 18px;background:var(--accent);color:#fff;font:inherit;font-weight:800;cursor:pointer}.btn:hover{filter:brightness(.96)}.result{margin-top:18px;padding:20px;border-radius:18px;background:#f4f8f4;border:1px solid #cdddcf}.result.bad{background:#fff3f1;border-color:#efc2bd}.result h3{margin:0 0 7px;font-size:24px}.result .big{font-size:32px;font-weight:850}.hidden{display:none}.reasons{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}.reason{padding:20px}.reason h3{margin:0 0 8px}.pill{display:inline-block;font-size:12px;font-weight:800;padding:5px 8px;border-radius:999px;background:#edf3ee;color:#43604c;margin-bottom:9px}.reason p{margin:6px 0;color:var(--muted)}.reason .limit{color:var(--ink);font-weight:650}.sources{font-size:14px;color:var(--muted)}.sources a{color:var(--accent)}.cta{display:grid;grid-template-columns:1fr 1fr;gap:16px}.cta a{display:block;text-decoration:none;padding:22px;border-radius:20px;border:1px solid var(--line);background:#fff;color:var(--ink);box-shadow:var(--shadow)}.cta a strong{display:block;font-size:21px;margin-bottom:5px}.cta a.primary{background:var(--accent);color:#fff;border-color:var(--accent)}footer{padding:34px 0 55px;color:var(--muted);font-size:13px}
 @media(max-width:760px){.hero{padding-top:42px}.hero-grid,.grid2,.cta,.reasons{grid-template-columns:1fr}.months{grid-template-columns:repeat(2,1fr)}.wrap{width:min(100% - 22px,1080px)}.calc{padding:18px}}@media(max-width:430px){.months{grid-template-columns:1fr}}
+
+.income-help{margin:18px 0;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+.income-help summary{cursor:pointer;padding:16px 18px;background:#f8f2ed;list-style:none}
+.income-help summary::-webkit-details-marker{display:none}.income-list{padding:4px 20px 16px}.income-list ul{padding-left:22px}.income-list li{margin:7px 0}
+.mini-note{padding:12px 14px;border-radius:12px;background:#fff7e8;border:1px solid #f0d7a2;font-size:14px}
+.parent-toggle{margin:18px 0}.adult-card{margin:18px 0;padding:22px;border:1px solid var(--line);border-radius:20px;background:#fcfaf8}.adult-title{display:flex;gap:12px;align-items:center;margin-bottom:18px}.adult-title h3{margin:0;font-size:24px}.adult-title small{color:var(--muted)}.adult-num{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--soft);font-weight:900;color:var(--accent)}
+.adult-card h4{font-size:18px;margin:20px 0 8px}.family-result{margin-top:18px;padding:20px;border-radius:18px;background:#eef5ef;border:1px solid #cbdccb}.family-result.warn{background:#fff3f1;border-color:#efc2bd}.family-result h3{margin:0 0 8px}
 </style>
 </head>
 <body>
 <header class="hero"><div class="wrap">
 <span class="eyebrow">Анна про пособия • бесплатная проверка</span>
 <h1>Проверьте правило 8 МРОТ для единого пособия</h1>
-<p>В 2026 году доход каждого трудоспособного члена семьи за расчётный период обычно должен быть не меньше 8 МРОТ. Но уважительные причины могут уменьшить этот порог или убрать его совсем.</p>
+<p>В 2026 году правило 8 МРОТ проверяется <b>отдельно по каждому трудоспособному члену семьи</b>. То есть 216 744 ₽ — не общая сумма на семью: свой минимальный доход должен быть у каждого взрослого, если требование не уменьшается из-за уважительных причин.</p>
 <div class="hero-grid">
 <div class="stat"><span>8 МРОТ в 2026 году</span><strong>216 744 ₽</strong><span>27 093 ₽ × 8</span></div>
 <div class="stat"><span>Если уважительных причин</span><strong>10+ мес.</strong><span>требование по минимальному доходу не применяется</span></div>
@@ -26,28 +33,62 @@
 
 <main>
 <section class="section"><div class="wrap">
-<h2>Быстрая проверка</h2>
-<p class="lead">Укажите месяц подачи заявления и доход конкретного взрослого. Затем отметьте уважительные причины по месяцам. Один месяц считается только один раз, даже если причин было несколько.</p>
+<h2>Проверьте каждого взрослого отдельно</h2>
+<p class="lead"><b>Важно:</b> 216 744 ₽ не складываются между родителями. Если в семье два трудоспособных родителя, СФР проверяет правило 8 МРОТ отдельно у мамы и отдельно у папы (супруга). Если состав семьи другой, проверять нужно каждого трудоспособного члена семьи, который входит в состав семьи для единого пособия.</p>
+
 <div class="card calc">
-<div class="grid2">
 <div class="field"><label for="applyMonth">Месяц подачи заявления</label><select id="applyMonth"></select></div>
-<div class="field"><label for="income">Доход, который учитывается для правила 8 МРОТ, ₽</label><input id="income" type="number" min="0" step="1" placeholder="Например, 180000"></div>
-</div>
 <div class="period" id="period"></div>
 
-<h3>Есть основание, которое освобождает от требования на весь расчётный период?</h3>
+<details class="income-help" open>
+<summary><b>Что входит в доход именно для правила 8 МРОТ?</b></summary>
+<div class="income-list">
+<p>Сложите за расчётный период доходы конкретного взрослого:</p>
+<ul>
+<li><b>зарплату</b>, включая официальные премии и другие выплаты за труд;</li>
+<li>доходы по <b>договорам ГПХ</b>, авторские и иные вознаграждения за работу/услуги;</li>
+<li>доходы <b>ИП, самозанятого, от частной практики</b> и другой приносящей доход деятельности;</li>
+<li><b>пенсию</b>;</li>
+<li><b>стипендию</b>;</li>
+<li><b>денежное довольствие военнослужащего</b>;</li>
+<li><b>доходы за пределами России</b>;</li>
+<li><b>пособие по временной нетрудоспособности</b>, то есть обычный больничный.</li>
+</ul>
+<p class="mini-note"><b>Не вписывайте сюда автоматически все детские и социальные пособия.</b> Для правила 8 МРОТ перечень уже, чем перечень доходов, который СФР использует для расчёта среднедушевого дохода семьи.</p>
+</div>
+</details>
+
+<label class="switch parent-toggle"><input type="checkbox" id="singleAdult"><span><b>В семье для этой проверки только один родитель / взрослый</b><br><small>Тогда второй блок можно не заполнять.</small></span></label>
+
+<div id="adult1" class="adult-card">
+<div class="adult-title"><span class="adult-num">1</span><div><h3>Мама / заявитель</h3><small>Считаем её доход и уважительные причины отдельно</small></div></div>
+<div class="field"><label for="income1">Доход этого взрослого за расчётный период, ₽</label><input id="income1" type="number" min="0" step="1" placeholder="Например, 180000"></div>
 <div class="switches">
-<label class="switch"><input type="checkbox" id="pregnant"><span><b>Беременность</b><br><small>В расчётном периоде беременность длилась 6 месяцев и более <b>или</b> на дату обращения срок беременности 12 недель и более.</small></span></label>
-<label class="switch"><input type="checkbox" id="largeFamily"><span><b>Один из родителей в многодетной семье</b><br><small>Этим основанием может воспользоваться один родитель.</small></span></label>
-<label class="switch"><input type="checkbox" id="singleParent"><span><b>Единственный родитель / единственный опекун</b><br><small>Когда второго родителя юридически нет в случаях, предусмотренных правилами.</small></span></label>
-<label class="switch"><input type="checkbox" id="indigenous"><span><b>Принадлежность к коренным малочисленным народам Севера, Сибири и Дальнего Востока</b></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="pregnant"><span><b>Беременность</b><br><small>Беременность длилась 6 месяцев и более в расчётном периоде или на дату обращения срок 12 недель и более.</small></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="largeFamily"><span><b>Один из родителей в многодетной семье</b><br><small>Этим основанием может воспользоваться один родитель.</small></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="singleParent"><span><b>Единственный родитель / единственный опекун</b></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="indigenous"><span><b>Коренные малочисленные народы Севера, Сибири и Дальнего Востока</b></span></label>
+</div>
+<h4>Уважительные причины по месяцам</h4>
+<div class="months" id="months1"></div>
+<div id="result1" class="result hidden"></div>
 </div>
 
-<h3>Или отметьте уважительную причину для каждого месяца</h3>
-<p class="lead">Для безработицы калькулятор засчитает максимум 6 месяцев. Для лечения учитывайте только период непрерывного лечения от 3 месяцев. Для службы и лишения свободы можно учитывать предусмотренный правилами 3-месячный период после окончания.</p>
-<div class="months" id="months"></div>
-<br><button class="btn" id="check">Проверить</button>
-<div id="result" class="result hidden"></div>
+<div id="adult2" class="adult-card">
+<div class="adult-title"><span class="adult-num">2</span><div><h3>Папа / супруг</h3><small>Его 8 МРОТ проверяются отдельно от дохода мамы</small></div></div>
+<div class="field"><label for="income2">Доход этого взрослого за расчётный период, ₽</label><input id="income2" type="number" min="0" step="1" placeholder="Например, 250000"></div>
+<div class="switches">
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="largeFamily"><span><b>Один из родителей в многодетной семье</b><br><small>Если это основание уже используется мамой, второй родитель не может использовать его одновременно.</small></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="singleParent"><span><b>Единственный родитель / единственный опекун</b></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="indigenous"><span><b>Коренные малочисленные народы Севера, Сибири и Дальнего Востока</b></span></label>
+</div>
+<h4>Уважительные причины по месяцам</h4>
+<div class="months" id="months2"></div>
+<div id="result2" class="result hidden"></div>
+</div>
+
+<button class="btn" id="check">Проверить семью по правилу 8 МРОТ</button>
+<div id="familyResult" class="family-result hidden"></div>
 </div>
 </div></section>
 
@@ -118,33 +159,56 @@ const ruMonths=['январь','февраль','март','апрель','ма�
 const apply=document.getElementById('applyMonth');
 for(let m=0;m<12;m++){const o=document.createElement('option');o.value='2026-'+String(m+1).padStart(2,'0');o.textContent=ruMonths[m]+' 2026';if(m===8)o.selected=true;apply.appendChild(o)}
 function fmt(n){return new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(n))+' ₽'}
-function calcMonths(){
+function buildMonths(){
  const [y,m]=apply.value.split('-').map(Number);
- const appDate=new Date(y,m-1,1);
  const end=new Date(y,m-3,1);
  const start=new Date(end.getFullYear(),end.getMonth()-11,1);
- const arr=[]; for(let i=0;i<12;i++){const d=new Date(start.getFullYear(),start.getMonth()+i,1);arr.push(d)}
  document.getElementById('period').innerHTML='<b>Расчётный период:</b> '+ruMonths[start.getMonth()]+' '+start.getFullYear()+' — '+ruMonths[end.getMonth()]+' '+end.getFullYear()+'.<br><small>Месяц перед подачей заявления в расчёт не входит.</small>';
- const box=document.getElementById('months'); box.innerHTML='';
- arr.forEach((d,i)=>{const div=document.createElement('div');div.className='month';div.innerHTML='<b>'+ruMonths[d.getMonth()]+' '+d.getFullYear()+'</b><select data-i="'+i+'">'+reasonOptions.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('')+'</select>';box.appendChild(div)});
+ [1,2].forEach(a=>{
+   const box=document.getElementById('months'+a); box.innerHTML='';
+   for(let i=0;i<12;i++){
+     const d=new Date(start.getFullYear(),start.getMonth()+i,1);
+     const div=document.createElement('div'); div.className='month';
+     div.innerHTML='<b>'+ruMonths[d.getMonth()]+' '+d.getFullYear()+'</b><select data-adult="'+a+'" data-i="'+i+'">'+reasonOptions.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('')+'</select>';
+     box.appendChild(div);
+   }
+ });
 }
-apply.addEventListener('change',calcMonths);calcMonths();
+apply.addEventListener('change',buildMonths);buildMonths();
+
+document.getElementById('singleAdult').addEventListener('change',e=>{
+ document.getElementById('adult2').style.display=e.target.checked?'none':'block';
+});
+
+function calculateAdult(a){
+ const income=Math.max(0,Number(document.getElementById('income'+a).value||0));
+ const full=[...document.querySelectorAll('.fullReason[data-adult="'+a+'"]:checked')].length>0;
+ let reasons=[...document.querySelectorAll('.month select[data-adult="'+a+'"]')].map(x=>x.value);
+ let unemployment=0;
+ reasons=reasons.map(r=>{if(r==='unemployment'){unemployment++;return unemployment<=6?r:''}return r});
+ const justified=reasons.filter(Boolean).length;
+ const threshold=(full||justified>=10)?0:EIGHT/12*(12-justified);
+ const ok=income>=threshold;
+ const box=document.getElementById('result'+a);
+ box.className='result '+(ok?'':'bad');
+ const why=full?'Отмечено основание, при котором минимальный порог может не применяться.':justified>=10?'Уважительная причина отмечена минимум в 10 месяцах, поэтому минимальный порог не применяется.':'Засчитано уважительных месяцев: '+justified+'. Требуемый минимум уменьшен пропорционально.';
+ box.innerHTML='<h3>'+(ok?'Предварительно проходит':'Доход ниже требуемого минимума')+'</h3><div class="big">'+fmt(income)+' / нужно '+fmt(threshold)+'</div><p>'+why+'</p>'+(income<threshold?'<p><b>Не хватает примерно '+fmt(threshold-income)+'.</b></p>':'');
+ box.classList.remove('hidden');
+ return {ok,income,threshold,justified,full};
+}
 
 document.getElementById('check').addEventListener('click',()=>{
- const income=Math.max(0,Number(document.getElementById('income').value||0));
- const full=['pregnant','largeFamily','singleParent','indigenous'].some(id=>document.getElementById(id).checked);
- const selects=[...document.querySelectorAll('.month select')];
- let reasons=selects.map(s=>s.value);
- let unemploymentSeen=0;
- reasons=reasons.map(r=>{if(r==='unemployment'){unemploymentSeen++; return unemploymentSeen<=6?r:''} return r});
- const justified=reasons.filter(Boolean).length;
- const threshold=full||justified>=10?0:EIGHT/12*(12-justified);
- const ok=income>=threshold;
- const result=document.getElementById('result');
- result.className='result '+(ok?'':'bad');
- let detail=full?'У вас отмечено основание, позволяющее не применять минимальный порог 8 МРОТ.':justified>=10?'Уважительная причина отмечена в '+justified+' месяцах. При 10 и более месяцах минимальный порог не применяется.':'Засчитано уважительных месяцев: '+justified+'. Порог уменьшен пропорционально.';
- result.innerHTML='<h3>'+(ok?'По правилу 8 МРОТ предварительно проходите':'По правилу 8 МРОТ доход пока ниже порога')+'</h3><div class="big">'+fmt(income)+' / '+fmt(threshold)+'</div><p>'+detail+'</p>'+(income<threshold?'<p><b>Не хватает примерно '+fmt(threshold-income)+'.</b> Проверьте, не пропустили ли вы уважительные причины или учитываемые виды дохода.</p>':'')+'<p><small>Это предварительный расчёт. СФР проверяет основания и периоды по сведениям ведомств и документам.</small></p>';
- result.classList.remove('hidden'); result.scrollIntoView({behavior:'smooth',block:'nearest'});
+ const r1=calculateAdult(1);
+ const one=document.getElementById('singleAdult').checked;
+ const r2=one?null:calculateAdult(2);
+ const family=document.getElementById('familyResult');
+ const allOk=r1.ok&&(one||r2.ok);
+ family.className='family-result '+(allOk?'':'warn');
+ family.innerHTML=allOk
+ ?'<h3>По правилу 8 МРОТ семья предварительно проходит</h3><p>По заполненным данным у каждого проверяемого трудоспособного взрослого выполнено требование с учётом отмеченных уважительных причин.</p>'
+ :'<h3>Есть риск отказа по правилу 8 МРОТ</h3><p>Хотя бы у одного трудоспособного взрослого доход ниже индивидуального порога. Проверьте доходы и уважительные причины именно этого человека.</p>';
+ family.classList.remove('hidden');
+ family.scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 </script>
 </body>
