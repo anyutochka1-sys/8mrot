@@ -17,13 +17,18 @@
 .mini-note{padding:12px 14px;border-radius:12px;background:#fff7e8;border:1px solid #f0d7a2;font-size:14px}
 .parent-toggle{margin:18px 0}.adult-card{margin:18px 0;padding:22px;border:1px solid var(--line);border-radius:20px;background:#fcfaf8}.adult-title{display:flex;gap:12px;align-items:center;margin-bottom:18px}.adult-title h3{margin:0;font-size:24px}.adult-title small{color:var(--muted)}.adult-num{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--soft);font-weight:900;color:var(--accent)}
 .adult-card h4{font-size:18px;margin:20px 0 8px}.family-result{margin-top:18px;padding:20px;border-radius:18px;background:#eef5ef;border:1px solid #cbdccb}.family-result.warn{background:#fff3f1;border-color:#efc2bd}.family-result h3{margin:0 0 8px}
+
+.step{padding:4px 0 18px}.step+.step{border-top:1px solid var(--line);padding-top:22px}.step-head{display:flex;gap:12px;align-items:center;margin-bottom:16px}.step-head h3{margin:0;font-size:24px}.step-head small{color:var(--muted)}.step-num{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--soft);font-weight:900;color:var(--accent);flex:0 0 auto}
+.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.choice-row.compact{grid-template-columns:repeat(2,minmax(120px,180px))}.choice{display:flex;gap:10px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff;cursor:pointer}.choice input{margin-top:4px}.choice span{display:flex;flex-direction:column}.choice small{color:var(--muted)}
+.text-link{border:0;background:none;padding:0;color:var(--accent);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:2px}.mini-help{margin:10px 0 16px;padding:14px 16px;border-radius:14px;background:#f8f2ed;border:1px solid var(--line);font-size:14px}.mini-help ul{margin:6px 0 8px;padding-left:20px}.mini-help p{margin:6px 0;color:var(--muted)}.question-block{margin-top:16px}.reason-block{margin-top:10px}
+@media(max-width:760px){.choice-row,.choice-row.compact{grid-template-columns:1fr}.step-head h3{font-size:21px}}
 </style>
 </head>
 <body>
 <header class="hero"><div class="wrap">
 <span class="eyebrow">Анна про пособия • бесплатная проверка</span>
 <h1>Проверьте правило 8 МРОТ для единого пособия</h1>
-<p>В 2026 году правило 8 МРОТ проверяется <b>отдельно по каждому трудоспособному члену семьи</b>. То есть 216 744 ₽ — не общая сумма на семью: свой минимальный доход должен быть у каждого взрослого, если требование не уменьшается из-за уважительных причин.</p>
+<p>Правило 8 МРОТ проверяется <b>отдельно по каждому трудоспособному члену семьи</b>. Это не общая сумма на семью: свой минимальный доход должен быть у каждого взрослого, если требование не уменьшается из-за уважительных причин.</p>
 <div class="hero-grid">
 <div class="stat"><span id="mrotYearLabel">8 МРОТ в 2026 году</span><strong id="eightMrotValue">216 744 ₽</strong><span id="mrotFormula">27 093 ₽ × 8</span></div>
 <div class="stat"><span>Если уважительных причин</span><strong>10+ мес.</strong><span>требование по минимальному доходу не применяется</span></div>
@@ -33,61 +38,106 @@
 
 <main>
 <section class="section"><div class="wrap">
-<h2>Проверьте каждого взрослого отдельно</h2>
-<p class="lead"><b>Важно:</b> 216 744 ₽ не складываются между родителями. Если в семье два трудоспособных родителя, СФР проверяет правило 8 МРОТ отдельно у мамы и отдельно у папы (супруга). Если состав семьи другой, проверять нужно каждого трудоспособного члена семьи, который входит в состав семьи для единого пособия.</p>
+<h2>Проверка за 2 минуты</h2>
+<p class="lead">Сначала выберите месяц подачи заявления. Потом проверьте каждого трудоспособного взрослого отдельно. Не нужно сразу заполнять десятки полей: уважительные причины откроются только если они у вас были.</p>
 
 <div class="card calc">
+<div class="step">
+<div class="step-head"><span class="step-num">1</span><div><h3>Когда подаёте заявление?</h3><small>От этого зависит расчётный период и размер 8 МРОТ</small></div></div>
 <div class="field"><label for="applyMonth">Месяц подачи заявления</label><select id="applyMonth"></select></div>
 <div class="period" id="period"></div>
-
-<details class="income-help" open>
-<summary><b>Что входит в доход именно для правила 8 МРОТ?</b></summary>
-<div class="income-list">
-<p>Сложите за расчётный период доходы конкретного взрослого:</p>
-<ul>
-<li><b>зарплату</b>, включая официальные премии и другие выплаты за труд;</li>
-<li>доходы по <b>договорам ГПХ</b>, авторские и иные вознаграждения за работу/услуги;</li>
-<li>доходы <b>ИП, самозанятого, от частной практики</b> и другой приносящей доход деятельности;</li>
-<li><b>пенсию</b>;</li>
-<li><b>стипендию</b>;</li>
-<li><b>денежное довольствие военнослужащего</b>;</li>
-<li><b>доходы за пределами России</b>;</li>
-<li><b>пособие по временной нетрудоспособности</b>, то есть обычный больничный.</li>
-</ul>
-<p class="mini-note"><b>Не вписывайте сюда автоматически все детские и социальные пособия.</b> Для правила 8 МРОТ перечень уже, чем перечень доходов, который СФР использует для расчёта среднедушевого дохода семьи.</p>
 </div>
-</details>
 
-<label class="switch parent-toggle"><input type="checkbox" id="singleAdult"><span><b>В семье для этой проверки только один родитель / взрослый</b><br><small>Тогда второй блок можно не заполнять.</small></span></label>
+<div class="step">
+<div class="step-head"><span class="step-num">2</span><div><h3>Кого проверяем?</h3><small>Правило 8 МРОТ применяется отдельно к каждому трудоспособному члену семьи</small></div></div>
+<div class="choice-row">
+<label class="choice"><input type="radio" name="familyMode" value="one"><span><b>Только один взрослый</b><small>Например, единственный родитель</small></span></label>
+<label class="choice"><input type="radio" name="familyMode" value="two" checked><span><b>Два взрослых</b><small>Например, мама и папа / супруг</small></span></label>
+</div>
+</div>
 
 <div id="adult1" class="adult-card">
-<div class="adult-title"><span class="adult-num">1</span><div><h3>Мама / заявитель</h3><small>Считаем её доход и уважительные причины отдельно</small></div></div>
-<div class="field"><label for="income1">Доход этого взрослого за расчётный период, ₽</label><input id="income1" type="number" min="0" step="1" placeholder="Например, 180000"></div>
+<div class="step-head"><span class="step-num">3</span><div><h3>Мама / заявитель</h3><small>Считаем её отдельно</small></div></div>
+<div class="field">
+<label for="income1">Доход за расчётный период, ₽ <button type="button" class="text-link" data-help="incomeHelp1">Что сюда включать?</button></label>
+<input id="income1" type="number" min="0" step="1" placeholder="Например, 180000">
+</div>
+<div id="incomeHelp1" class="mini-help hidden">
+<ul>
+<li>зарплата и официальные премии;</li>
+<li>ГПХ и иные вознаграждения за работу/услуги;</li>
+<li>ИП, самозанятость, частная практика;</li>
+<li>пенсия, стипендия;</li>
+<li>денежное довольствие военнослужащего;</li>
+<li>доходы за пределами РФ;</li>
+<li>пособие по временной нетрудоспособности.</li>
+</ul>
+<p>Не прибавляйте автоматически все детские и социальные пособия: для правила 8 МРОТ перечень уже, чем для общего среднедушевого дохода.</p>
+</div>
+<div class="question-block">
+<p><b>Были уважительные причины, из-за которых доход мог быть ниже?</b></p>
+<div class="choice-row compact">
+<label class="choice"><input type="radio" name="reasonMode1" value="no" checked><span><b>Нет</b></span></label>
+<label class="choice"><input type="radio" name="reasonMode1" value="yes"><span><b>Да</b></span></label>
+</div>
+</div>
+<div id="reasonBlock1" class="reason-block hidden">
+<details class="income-help">
+<summary><b>Есть основание, которое может снять требование полностью?</b></summary>
 <div class="switches">
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="pregnant"><span><b>Беременность</b><br><small>Беременность длилась 6 месяцев и более в расчётном периоде или на дату обращения срок 12 недель и более.</small></span></label>
-<label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="largeFamily"><span><b>Один из родителей в многодетной семье</b><br><small>Этим основанием может воспользоваться один родитель.</small></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="largeFamily"><span><b>Один из родителей в многодетной семье</b></span></label>
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="singleParent"><span><b>Единственный родитель / единственный опекун</b></span></label>
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="1" value="indigenous"><span><b>Коренные малочисленные народы Севера, Сибири и Дальнего Востока</b></span></label>
 </div>
-<h4>Уважительные причины по месяцам</h4>
+</details>
+<h4>Если причина действовала не весь период, отметьте месяцы</h4>
 <div class="months" id="months1"></div>
+</div>
 <div id="result1" class="result hidden"></div>
 </div>
 
 <div id="adult2" class="adult-card">
-<div class="adult-title"><span class="adult-num">2</span><div><h3>Папа / супруг</h3><small>Его 8 МРОТ проверяются отдельно от дохода мамы</small></div></div>
-<div class="field"><label for="income2">Доход этого взрослого за расчётный период, ₽</label><input id="income2" type="number" min="0" step="1" placeholder="Например, 250000"></div>
+<div class="step-head"><span class="step-num">4</span><div><h3>Папа / супруг</h3><small>Считаем отдельно от мамы</small></div></div>
+<div class="field">
+<label for="income2">Доход за расчётный период, ₽ <button type="button" class="text-link" data-help="incomeHelp2">Что сюда включать?</button></label>
+<input id="income2" type="number" min="0" step="1" placeholder="Например, 250000">
+</div>
+<div id="incomeHelp2" class="mini-help hidden">
+<ul>
+<li>зарплата и официальные премии;</li>
+<li>ГПХ и иные вознаграждения за работу/услуги;</li>
+<li>ИП, самозанятость, частная практика;</li>
+<li>пенсия, стипендия;</li>
+<li>денежное довольствие военнослужащего;</li>
+<li>доходы за пределами РФ;</li>
+<li>пособие по временной нетрудоспособности.</li>
+</ul>
+<p>Не прибавляйте автоматически все детские и социальные пособия.</p>
+</div>
+<div class="question-block">
+<p><b>Были уважительные причины, из-за которых доход мог быть ниже?</b></p>
+<div class="choice-row compact">
+<label class="choice"><input type="radio" name="reasonMode2" value="no" checked><span><b>Нет</b></span></label>
+<label class="choice"><input type="radio" name="reasonMode2" value="yes"><span><b>Да</b></span></label>
+</div>
+</div>
+<div id="reasonBlock2" class="reason-block hidden">
+<details class="income-help">
+<summary><b>Есть основание, которое может снять требование полностью?</b></summary>
 <div class="switches">
-<label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="largeFamily"><span><b>Один из родителей в многодетной семье</b><br><small>Если это основание уже используется мамой, второй родитель не может использовать его одновременно.</small></span></label>
+<label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="largeFamily"><span><b>Один из родителей в многодетной семье</b><br><small>Одновременно это основание применяется только к одному родителю.</small></span></label>
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="singleParent"><span><b>Единственный родитель / единственный опекун</b></span></label>
 <label class="switch"><input type="checkbox" class="fullReason" data-adult="2" value="indigenous"><span><b>Коренные малочисленные народы Севера, Сибири и Дальнего Востока</b></span></label>
 </div>
-<h4>Уважительные причины по месяцам</h4>
+</details>
+<h4>Если причина действовала не весь период, отметьте месяцы</h4>
 <div class="months" id="months2"></div>
+</div>
 <div id="result2" class="result hidden"></div>
 </div>
 
-<button class="btn" id="check">Проверить семью по правилу 8 МРОТ</button>
+<button class="btn" id="check">Проверить по правилу 8 МРОТ</button>
 <div id="familyResult" class="family-result hidden"></div>
 </div>
 </div></section>
@@ -113,7 +163,7 @@
 <h2>Как считается уменьшенный порог</h2>
 <div class="card reason">
 <p>Если уважительная причина действовала меньше 10 месяцев, 8 МРОТ уменьшаются пропорционально:</p>
-<p><b>216 744 ₽ ÷ 12 × (12 − количество засчитанных месяцев)</b></p>
+<p><b><span id="formulaEight">216 744 ₽</span> ÷ 12 × (12 − количество засчитанных месяцев)</b></p>
 <p>Например, 4 месяца официальной безработицы: порог будет рассчитан за оставшиеся 8 месяцев.</p>
 </div>
 </div></section>
@@ -157,6 +207,7 @@ async function loadMrotData(){
     document.getElementById('mrotYearLabel').textContent='8 МРОТ в '+useYear+' году';
     document.getElementById('eightMrotValue').textContent=fmt(EIGHT);
     document.getElementById('mrotFormula').textContent=fmt(MROT)+' × 8';
+    const formula=document.getElementById('formulaEight'); if(formula) formula.textContent=fmt(EIGHT);
   }
 }
 const reasonOptions=[
@@ -215,14 +266,26 @@ apply.addEventListener('change',()=>{
 });
 loadMrotData().then(()=>{buildApplyOptions();buildMonths();});
 
-document.getElementById('singleAdult').addEventListener('change',e=>{
- document.getElementById('adult2').style.display=e.target.checked?'none':'block';
+document.querySelectorAll('input[name="familyMode"]').forEach(r=>r.addEventListener('change',()=>{
+  const one=document.querySelector('input[name="familyMode"]:checked').value==='one';
+  document.getElementById('adult2').style.display=one?'none':'block';
+}));
+document.querySelectorAll('[data-help]').forEach(btn=>btn.addEventListener('click',()=>{
+  const el=document.getElementById(btn.dataset.help);
+  el.classList.toggle('hidden');
+}));
+[1,2].forEach(a=>{
+  document.querySelectorAll('input[name="reasonMode'+a+'"]').forEach(r=>r.addEventListener('change',()=>{
+    const yes=document.querySelector('input[name="reasonMode'+a+'"]:checked').value==='yes';
+    document.getElementById('reasonBlock'+a).classList.toggle('hidden',!yes);
+  }));
 });
 
 function calculateAdult(a){
  const income=Math.max(0,Number(document.getElementById('income'+a).value||0));
- const full=[...document.querySelectorAll('.fullReason[data-adult="'+a+'"]:checked')].length>0;
- let reasons=[...document.querySelectorAll('.month select[data-adult="'+a+'"]')].map(x=>x.value);
+ const reasonYes=document.querySelector('input[name="reasonMode'+a+'"]:checked').value==='yes';
+ const full=reasonYes && [...document.querySelectorAll('.fullReason[data-adult="'+a+'"]:checked')].length>0;
+ let reasons=reasonYes ? [...document.querySelectorAll('.month select[data-adult="'+a+'"]')].map(x=>x.value) : [];
  let unemployment=0;
  reasons=reasons.map(r=>{if(r==='unemployment'){unemployment++;return unemployment<=6?r:''}return r});
  const justified=reasons.filter(Boolean).length;
@@ -238,7 +301,7 @@ function calculateAdult(a){
 
 document.getElementById('check').addEventListener('click',()=>{
  const r1=calculateAdult(1);
- const one=document.getElementById('singleAdult').checked;
+ const one=document.querySelector('input[name="familyMode"]:checked').value==='one';
  const r2=one?null:calculateAdult(2);
  const family=document.getElementById('familyResult');
  const allOk=r1.ok&&(one||r2.ok);
